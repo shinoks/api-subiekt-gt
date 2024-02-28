@@ -35,8 +35,6 @@ try {
 	}
 
 
-	//include('json_test.php');
-
 	$run = explode('/', $_GET['c']);
 	if (count($run) != 2) {
 		throw new Exception("Nie prawidłowe wywołanie API");
