@@ -180,10 +180,15 @@ class Product extends SubiektObj{
 	}
 
 	public function getListByStore(){
-		$sql = "SELECT tw_Nazwa as nazwa,tw_CenaKartotekowa as cena,tw_Symbol as code ,Rezerwacja as reservation,Dostepne as available, Stan as on_store,  st_MagId as id_store FROM vwTowar WHERE st_MagId = ".intval($this->id_store);
+		$sql = "SELECT * FROM vwTowar WHERE st_MagId = ".intval($this->id_store);
 		$data = MSSql::getInstance()->query($sql);
 		return $data;	
-	}
+	}/*
+	public function getListByStore(){
+		$sql = "SELECT tw_Parametr as nazwa,tw_Nazwa as nazwa,tw_Cena as cena,tw_Symbol as code ,Rezerwacja as reservation,Dostepne as available, Stan as on_store,  st_MagId as id_store FROM vwTowar WHERE st_MagId = ".intval($this->id_store);
+		$data = MSSql::getInstance()->query($sql);
+		return $data;
+	}*/
 
 	public function getListAviByStore(){
 		$sql = "SELECT tw_Symbol as code ,Rezerwacja as reservation,Dostepne as available, Stan as on_store,  st_MagId as id_store FROM vwTowar WHERE st_MagId = ".intval($this->id_store).' AND Dostepne > 0';
